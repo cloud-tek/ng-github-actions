@@ -3,13 +3,13 @@ name: Build the app
 on:
   push:
     branches:
-    - master
+      - master
     paths:
-    - .github/*
-    - ng-github-actions/*
+      - .github/*
+      - ng-github-actions/*
   pull_request:
     branches:
-    - master
+      - master
 
 jobs:
   build:
@@ -22,10 +22,12 @@ jobs:
         node-version: [10.x, 12.x]
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v1
+        name: Use Node.js ${{ matrix.node-version }}
         with:
           node-version: ${{ matrix.node-version }}
+      - run: tree
+        shell: bash
       - run: npm install
       - run: npm run build #--if-present
       #- run: npm test
