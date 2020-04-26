@@ -1,0 +1,24 @@
+name: Build the app
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - .github/workflows/*
+      - ng-github-actions/*
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Diagnostics
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: hostname
+        shell: bash
+      - run: whoami
+        shell: bash
+      - run: set
+        shell: bash
