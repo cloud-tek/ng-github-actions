@@ -24,9 +24,9 @@ jobs:
         name: Use Node.js ${{ matrix.node-version }}
         with:
           node-version: ${{ matrix.node-version }}
-      - run: tree
-        shell: bash
       - run: npm install
+        shell: bash
         working-directory: ng-github-actions
       - run: npm run build
+        shell: bash
         working-directory: ng-github-actions
