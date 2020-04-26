@@ -26,6 +26,12 @@ jobs:
       - run: npm install
         shell: bash
         working-directory: ng-github-actions
+      - run: npm run lint
+        shell: bash
+        working-directory: ng-github-actions
+      - run: npm run test:ci
+        shell: bash
+        working-directory: ng-github-actions
       - run: npm run build
         shell: bash
         working-directory: ng-github-actions
